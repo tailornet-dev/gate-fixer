@@ -14,7 +14,9 @@ if [ $? -ne 0 ]; then
     echo "error fetching gate git repository"
     exit 1;
 fi
-docker exec gate git checkout package.json package-lock.json 2>/dev/null
-docker exec gate git clean -fd package.json package-lock.json 2>/dev/null
+docker exec gate git checkout package.json 2>/dev/null
+docker exec gate git checkout package-lock.json 2>/dev/null
+docker exec gate git clean -fd package.json 2>/dev/null
+docker exec gate git clean -fd package-lock.json 2>/dev/null
 
 installCron
